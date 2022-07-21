@@ -61,6 +61,7 @@ kappa_NN = tf.keras.Sequential(
       tf.keras.layers.Dense(16, activation='tanh',    kernel_initializer='glorot_normal'),
       tf.keras.layers.Dense(16, activation='tanh',    kernel_initializer='glorot_normal'),
       tf.keras.layers.Dense(16, activation='tanh',    kernel_initializer='glorot_normal'),
+      tf.keras.layers.Dense(16, activation='tanh',    kernel_initializer='glorot_normal'),
       tf.keras.layers.Dense(1,  activation='sigmoid', kernel_initializer='glorot_normal')])
 
 start = time.time()
