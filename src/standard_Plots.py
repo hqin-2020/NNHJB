@@ -6,7 +6,7 @@ from standard_para import *
 from standard_training import *
 from standard_plotting import *
 import argparse
-import stationaryDensityModules
+from stationaryDensityModules import *
 
 parser = argparse.ArgumentParser(description="parameter settings")
 parser.add_argument("--model",type=str,default='ah_0135')
@@ -67,7 +67,7 @@ sigmaR_NN = variables['sigmaR']
 muX_NN = variables['muX']
 sigmaX_NN = variables['sigmaX']
 q_NN, r_NN, Pi_h_NN, Pi_e_NN, sigmaR_NN, muX_NN, sigmaX_NN = q_NN.numpy(), r_NN.numpy(), Pi_h_NN.numpy(), Pi_e_NN.numpy(), sigmaR_NN.numpy(), np.matrix(muX_NN), [np.matrix(el) for el in sigmaX_NN]
-dent_NN, FKmat_NN, stateGrid = stationaryDensityModules.computeDent(np.matrix(X), {'muX': muX_NN, 'sigmaX': sigmaX_NN})
+dent_NN, FKmat_NN, stateGrid = computeDent(np.matrix(X), {'muX': muX_NN, 'sigmaX': sigmaX_NN})
 
 mfr_Results   = [logXiE, logXiH, kappa]
 nn_Results    = [logXiE_NNs, logXiH_NNs, kappa_NNs]  
