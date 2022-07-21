@@ -6,7 +6,7 @@ from standard_para import *
 from standard_training import *
 from standard_plotting import *
 import argparse
-from stationaryDensityModules import *
+# from stationaryDensityModules import *
 
 parser = argparse.ArgumentParser(description="parameter settings")
 parser.add_argument("--model",type=str,default='ah_0135')
@@ -67,7 +67,7 @@ sigmaR_NN = variables['sigmaR']
 muX_NN = variables['muX']
 sigmaX_NN = variables['sigmaX']
 q_NN, r_NN, Pi_h_NN, Pi_e_NN, sigmaR_NN, muX_NN, sigmaX_NN = q_NN.numpy(), r_NN.numpy(), Pi_h_NN.numpy(), Pi_e_NN.numpy(), sigmaR_NN.numpy(), np.matrix(muX_NN), [np.matrix(el) for el in sigmaX_NN]
-dent_NN, FKmat_NN, stateGrid = computeDent(np.matrix(X), {'muX': muX_NN, 'sigmaX': sigmaX_NN})
+# dent_NN, FKmat_NN, stateGrid = computeDent(np.matrix(X), {'muX': muX_NN, 'sigmaX': sigmaX_NN})
 
 mfr_Results   = [logXiE, logXiH, kappa]
 nn_Results    = [logXiE_NNs, logXiH_NNs, kappa_NNs]  
@@ -110,10 +110,10 @@ var_name      = ['sigma_R' for i in range(3)]
 plot_content  = 'Local Capital Return Volatility: ' + model
 generateSurfacePlots(mfr_Results, nn_Results, fix_points, X, function_name, var_name, plot_content, height=800, width=1300, path = docdir)
 
-mfr_Results   = [dent_MFR]
-nn_Results    = [dent_NN]
-fix_points    = [14,14]
-function_name = ['Stationary density']
-var_name      = ['Density']
-plot_content  = 'Stationary densities: ' + model
-generateSurfacePlots(mfr_Results, nn_Results, fix_points, X, function_name, var_name, plot_content, height=800, width=1300, path = docdir)
+# mfr_Results   = [dent_MFR]
+# nn_Results    = [dent_NN]
+# fix_points    = [14,14]
+# function_name = ['Stationary density']
+# var_name      = ['Density']
+# plot_content  = 'Stationary densities: ' + model
+# generateSurfacePlots(mfr_Results, nn_Results, fix_points, X, function_name, var_name, plot_content, height=800, width=1300, path = docdir)
