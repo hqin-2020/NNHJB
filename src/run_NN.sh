@@ -33,6 +33,7 @@ module load cuda/11.4
 source ~/venv/tensorflow-gpu/bin/activate
 
 srun python3 standard_BFGS.py --model $model
+srun python3 standard_Plots.py --model $model
 
 EOF
     sbatch ./bash/run_$model.sh
