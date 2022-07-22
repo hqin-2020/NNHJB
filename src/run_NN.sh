@@ -3,7 +3,7 @@
 mkdir -p ./job-outs
 mkdir -p ./bash
 
-declare -a model_list=("chi_0800" "psie_1500_psih_0500_chi_0500_gammah_8000_gammae_0500" "psie_1500_psih_1500_chi_0500_gammah_8000_gammae_0500")
+declare -a model_list=("psie_0500_psih_0500_chi_0500_gammah_8000_gammae_0500" "psie_1500_psih_0500_chi_0500_gammah_8000_gammae_0500" "psie_0500_psih_1500_chi_0500_gammah_8000_gammae_0500" "psie_1500_psih_1500_chi_0500_gammah_8000_gammae_0500")
 
 for model in "${model_list[@]}"
 do
