@@ -4,7 +4,7 @@
 #SBATCH --job-name=run_ae_0150_ah_0100
 #SBATCH --output=./job-outs/run_ae_0150_ah_0100.out
 #SBATCH --error=./job-outs/run_ae_0150_ah_0100.err
-#SBATCH --time=0-2:00:00
+#SBATCH --time=0-3:00:00
 #SBATCH --partition=gpu
 #SBATCH --gres=gpu:1
 #SBATCH --cpus-per-task=16

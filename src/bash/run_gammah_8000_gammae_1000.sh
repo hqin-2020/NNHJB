@@ -4,7 +4,7 @@
 #SBATCH --job-name=run_gammah_8000_gammae_1000
 #SBATCH --output=./job-outs/run_gammah_8000_gammae_1000.out
 #SBATCH --error=./job-outs/run_gammah_8000_gammae_1000.err
-#SBATCH --time=0-2:00:00
+#SBATCH --time=0-3:00:00
 #SBATCH --partition=gpu
 #SBATCH --gres=gpu:1
 #SBATCH --cpus-per-task=16

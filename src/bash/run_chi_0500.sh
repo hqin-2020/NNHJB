@@ -4,7 +4,7 @@
 #SBATCH --job-name=run_chi_0500
 #SBATCH --output=./job-outs/run_chi_0500.out
 #SBATCH --error=./job-outs/run_chi_0500.err
-#SBATCH --time=0-2:00:00
+#SBATCH --time=0-3:00:00
 #SBATCH --partition=gpu
 #SBATCH --gres=gpu:1
 #SBATCH --cpus-per-task=16

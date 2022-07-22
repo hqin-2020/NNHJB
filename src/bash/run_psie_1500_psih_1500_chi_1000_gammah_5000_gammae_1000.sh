@@ -4,7 +4,7 @@
 #SBATCH --job-name=run_psie_1500_psih_1500_chi_1000_gammah_5000_gammae_1000
 #SBATCH --output=./job-outs/run_psie_1500_psih_1500_chi_1000_gammah_5000_gammae_1000.out
 #SBATCH --error=./job-outs/run_psie_1500_psih_1500_chi_1000_gammah_5000_gammae_1000.err
-#SBATCH --time=0-2:00:00
+#SBATCH --time=0-3:00:00
 #SBATCH --partition=gpu
 #SBATCH --gres=gpu:1
 #SBATCH --cpus-per-task=16
