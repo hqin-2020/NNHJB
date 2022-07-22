@@ -3,14 +3,14 @@
 mkdir -p ./job-outs
 mkdir -p ./bash
 
-declare -a model_list=("chi_0800" "chi_0200" \
-                        "gammah_8000_gammae_1000" "gammah_5000_gammae_1000" "gammah_3000_gammae_1000" "gammah_8000_gammae_0500" "gammah_1000_gammae_0500" \
-                        "psie_0500_psih_0500" "psie_0500_psih_1500" "psie_1500_psih_0500" "psie_1500_psih_1500" \
-                        "psie_0500_psih_0500_chi_1000_gammah_5000_gammae_1000" "psie_1500_psih_1500_chi_1000_gammah_5000_gammae_1000" \
-                        "psie_0500_psih_0500_chi_1000_gammah_8000_gammae_0500" "psie_1500_psih_1500_chi_1000_gammah_8000_gammae_0500" \
-                        "psie_0500_psih_0500_chi_0500_gammah_8000_gammae_0500" "psie_0500_psih_1500_chi_0500_gammah_8000_gammae_0500" \
-                        "psie_1500_psih_0500_chi_0500_gammah_8000_gammae_0500" "psie_1500_psih_1500_chi_0500_gammah_8000_gammae_0500" \
-                        "chi_0500" "ae_0150_ah_0050" "ae_0150_ah_0100")
+declare -a model_list=("ae_0150_ah_0100" "ae_0150_ah_0050" "chi_0800" "chi_0500" "chi_0200" \
+              "gammah_8000_gammae_1000" "gammah_5000_gammae_1000" "gammah_3000_gammae_1000" "gammah_8000_gammae_0500" "gammah_1000_gammae_0500" \
+              "psie_0500_psih_0500" "psie_0500_psih_1500" "psie_1500_psih_0500" "psie_1500_psih_1500" \
+              "psie_0500_psih_0500_chi_1000_gammah_5000_gammae_1000" "psie_0500_psih_1500_chi_1000_gammah_5000_gammae_1000" \
+              "psie_1500_psih_0500_chi_1000_gammah_5000_gammae_1000" "psie_1500_psih_1500_chi_1000_gammah_5000_gammae_1000" \
+              "psie_0500_psih_0500_chi_1000_gammah_8000_gammae_0500" "psie_1500_psih_1500_chi_1000_gammah_8000_gammae_0500" \
+              "psie_0500_psih_0500_chi_0500_gammah_8000_gammae_0500" "psie_0500_psih_1500_chi_0500_gammah_8000_gammae_0500" \
+              "psie_1500_psih_0500_chi_0500_gammah_8000_gammae_0500" "psie_1500_psih_1500_chi_0500_gammah_8000_gammae_0500")
 
 for model in "${model_list[@]}"
 do
@@ -22,7 +22,7 @@ do
 #SBATCH --job-name=run_$model
 #SBATCH --output=./job-outs/run_$model.out
 #SBATCH --error=./job-outs/run_$model.err
-#SBATCH --time=0-2:00:00
+#SBATCH --time=0-3:00:00
 #SBATCH --partition=gpu
 #SBATCH --gres=gpu:1
 #SBATCH --cpus-per-task=16

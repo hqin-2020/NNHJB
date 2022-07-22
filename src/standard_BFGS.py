@@ -42,6 +42,7 @@ logXiE_NN = tf.keras.Sequential(
       tf.keras.layers.Dense(16, activation='tanh', kernel_initializer='glorot_normal'),
       tf.keras.layers.Dense(16, activation='tanh', kernel_initializer='glorot_normal'),
       tf.keras.layers.Dense(16, activation='tanh', kernel_initializer='glorot_normal'),
+      tf.keras.layers.Dense(16, activation='tanh', kernel_initializer='glorot_normal'),
       tf.keras.layers.Dense(1,  activation= None,  kernel_initializer='glorot_normal')])
 
 logXiH_NN = tf.keras.Sequential(
@@ -52,10 +53,12 @@ logXiH_NN = tf.keras.Sequential(
       tf.keras.layers.Dense(16, activation='tanh', kernel_initializer='glorot_normal'),
       tf.keras.layers.Dense(16, activation='tanh', kernel_initializer='glorot_normal'),
       tf.keras.layers.Dense(16, activation='tanh', kernel_initializer='glorot_normal'),
+      tf.keras.layers.Dense(16, activation='tanh', kernel_initializer='glorot_normal'),
       tf.keras.layers.Dense(1,  activation= None , kernel_initializer='glorot_normal')])
 
 kappa_NN = tf.keras.Sequential(
     [tf.keras.Input(shape=[3,]),
+      tf.keras.layers.Dense(16, activation='tanh',    kernel_initializer='glorot_normal'),
       tf.keras.layers.Dense(16, activation='tanh',    kernel_initializer='glorot_normal'),
       tf.keras.layers.Dense(16, activation='tanh',    kernel_initializer='glorot_normal'),
       tf.keras.layers.Dense(16, activation='tanh',    kernel_initializer='glorot_normal'),
