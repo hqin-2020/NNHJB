@@ -49,7 +49,7 @@ r_MFR = np.genfromtxt(mfrSuite_resdir + '/r_final.dat').transpose().reshape(-1,1
 Pi_h_MFR = np.genfromtxt(mfrSuite_resdir + '/PiH_final.dat').reshape(3,-1).transpose()
 Pi_e_MFR = np.genfromtxt(mfrSuite_resdir + '/PiE_final.dat').reshape(3,-1).transpose()
 sigmaR_MFR = np.genfromtxt(mfrSuite_resdir + '/sigmaR_final.dat').reshape(3,-1).transpose()
-# dent_MFR   = np.genfromtxt(mfrSuite_resdir + '/dent.txt').reshape(-1,1)
+dent_MFR   = np.genfromtxt(mfrSuite_resdir + '/dent.txt').reshape(-1,1)
 
 # Form X and order_states dictionary
 X_var = tf.Variable(X, dtype=tf.float64)
