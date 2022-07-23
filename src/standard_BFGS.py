@@ -29,7 +29,7 @@ with open(json_location) as json_file:
   paramsFromFile= json.load(json_file)
 params = setModelParametersFromFile(paramsFromFile)
 
-batchSize = 2048
+batchSize = 2048*5
 
 ## Use float64 by default
 tf.keras.backend.set_floatx("float64")
