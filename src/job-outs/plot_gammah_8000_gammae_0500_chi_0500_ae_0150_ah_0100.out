@@ -1,0 +1,5 @@
+==========================================
+SLURM_JOB_ID = 9526092
+SLURM_SUBMIT_DIR = /home/qhaomin/NNHJB/src
+SLURM_JOB_NODELIST = mgpu02
+==========================================
