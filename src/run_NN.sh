@@ -3,24 +3,8 @@
 mkdir -p ./job-outs
 mkdir -p ./bash
 
-declare -a model_list=("psie_1000_psih_1000_chi_0500_gammah_8000_gammae_1000_ae_0140_ah_0135" "psie_1000_psih_1000_chi_0200_gammah_8000_gammae_1000_ae_0140_ah_0135" \
-              "psie_1000_psih_1000_chi_0500_gammah_8000_gammae_0500_ae_0140_ah_0135" "psie_1000_psih_1000_chi_0200_gammah_8000_gammae_0500_ae_0140_ah_0135" \
-              "psie_0500_psih_1500_chi_1000_gammah_5000_gammae_1000" "psie_1500_psih_0500_chi_1000_gammah_5000_gammae_1000" \
-             "psie_1000_psih_1000_chi_1000_gammah_3000_gammae_1000_ae_0150_ah_0100" "psie_1000_psih_1000_chi_1000_gammah_3000_gammae_1000_ae_0150_ah_0050" \
-             "psie_1000_psih_1000_chi_1000_gammah_3000_gammae_0500_ae_0150_ah_0100" "psie_1000_psih_1000_chi_1000_gammah_3000_gammae_0500_ae_0150_ah_0050" \
-             "psie_1000_psih_1000_chi_0500_gammah_3000_gammae_1000_ae_0150_ah_0100" "psie_1000_psih_1000_chi_0500_gammah_3000_gammae_1000_ae_0150_ah_0050" \
-             "psie_1000_psih_1000_chi_0500_gammah_3000_gammae_0500_ae_0150_ah_0100" "psie_1000_psih_1000_chi_0500_gammah_3000_gammae_0500_ae_0150_ah_0050" \
-             "psie_1000_psih_1000_chi_1000_gammah_8000_gammae_1000_ae_0150_ah_0100" "psie_1000_psih_1000_chi_1000_gammah_8000_gammae_1000_ae_0150_ah_0050" \
-             "psie_1000_psih_1000_chi_1000_gammah_8000_gammae_0500_ae_0150_ah_0100" "psie_1000_psih_1000_chi_1000_gammah_8000_gammae_0500_ae_0150_ah_0050" \
-             "gammah_8000_gammae_0500_chi_0500_ae_0150_ah_0100" "gammah_8000_gammae_0500_chi_0500_ae_0150_ah_0050" \
-             "psie_0500_psih_0500_chi_1000_gammah_8000_gammae_1000_ae_0150_ah_0050" "psie_0500_psih_1500_chi_1000_gammah_8000_gammae_1000_ae_0150_ah_0050" \
-             "psie_1500_psih_0500_chi_1000_gammah_8000_gammae_1000_ae_0150_ah_0050" "psie_1500_psih_1500_chi_1000_gammah_8000_gammae_1000_ae_0150_ah_0050" \
-             "psie_0500_psih_0500_chi_1000_gammah_8000_gammae_1000_ae_0150_ah_0100" "psie_0500_psih_1500_chi_1000_gammah_8000_gammae_1000_ae_0150_ah_0100" \
-             "psie_1500_psih_0500_chi_1000_gammah_8000_gammae_1000_ae_0150_ah_0100" "psie_1500_psih_1500_chi_1000_gammah_8000_gammae_1000_ae_0150_ah_0100" \
-             "psie_0500_psih_0500_chi_1000_gammah_8000_gammae_0500_ae_0150_ah_0050" "psie_0500_psih_1500_chi_1000_gammah_8000_gammae_0500_ae_0150_ah_0050" \
-             "psie_1500_psih_0500_chi_1000_gammah_8000_gammae_0500_ae_0150_ah_0050" "psie_1500_psih_1500_chi_1000_gammah_8000_gammae_0500_ae_0150_ah_0050" \
-             "psie_0500_psih_0500_chi_1000_gammah_8000_gammae_0500_ae_0150_ah_0100" "psie_0500_psih_1500_chi_1000_gammah_8000_gammae_0500_ae_0150_ah_0100" \
-             "psie_1500_psih_0500_chi_1000_gammah_8000_gammae_0500_ae_0150_ah_0100" "psie_1500_psih_1500_chi_1000_gammah_8000_gammae_0500_ae_0150_ah_0100")
+declare -a model_list=("psie_1000_psih_1000_chi_0500_gammah_5000_gammae_1000_ae_0140_ah_0135" "psie_1000_psih_1000_chi_0200_gammah_5000_gammae_1000_ae_0140_ah_0135" \
+             "psie_1000_psih_1000_chi_0500_gammah_5000_gammae_0500_ae_0140_ah_0135" "psie_1000_psih_1000_chi_0200_gammah_5000_gammae_0500_ae_0140_ah_0135")
 
 
 for model in "${model_list[@]}"
