@@ -1,46 +1,46 @@
 ==========================================
-SLURM_JOB_ID = 9525988
+SLURM_JOB_ID = 9526468
 SLURM_SUBMIT_DIR = /home/qhaomin/NNHJB/src
-SLURM_JOB_NODELIST = mgpu01
+SLURM_JOB_NODELIST = mgpu02
 ==========================================
 Iteration 0
-Elapsed time for kappa 104.1324 sec
-Elapsed time for experts 89.5136 sec
-Elapsed time for households 76.3623 sec
+Elapsed time for kappa 70.2449 sec
+Elapsed time for experts 47.6077 sec
+Elapsed time for households 41.1246 sec
 Iteration 1
-Elapsed time for kappa 30.0499 sec
-Elapsed time for experts 79.5240 sec
-Elapsed time for households 74.4404 sec
+Elapsed time for kappa 26.0254 sec
+Elapsed time for experts 7.5730 sec
+Elapsed time for households 37.3741 sec
 Iteration 2
-Elapsed time for kappa 31.1031 sec
-Elapsed time for experts 84.3369 sec
-Elapsed time for households 74.5533 sec
+Elapsed time for kappa 16.1483 sec
+Elapsed time for experts 7.9189 sec
+Elapsed time for households 6.2082 sec
 Iteration 3
-Elapsed time for kappa 28.6221 sec
-Elapsed time for experts 10.9797 sec
-Elapsed time for households 74.5181 sec
+Elapsed time for kappa 18.4829 sec
+Elapsed time for experts 42.6901 sec
+Elapsed time for households 37.3766 sec
 Iteration 4
-Elapsed time for kappa 26.5278 sec
-Elapsed time for experts 81.9565 sec
-Elapsed time for households 71.6537 sec
+Elapsed time for kappa 20.9119 sec
+Elapsed time for experts 7.8059 sec
+Elapsed time for households 37.4937 sec
 Iteration 5
-Elapsed time for kappa 25.5261 sec
-Elapsed time for experts 78.8925 sec
-Elapsed time for households 43.8482 sec
+Elapsed time for kappa 17.1135 sec
+Elapsed time for experts 7.9806 sec
+Elapsed time for households 10.6505 sec
 Iteration 6
-Elapsed time for kappa 22.8460 sec
-Elapsed time for experts 9.4055 sec
-Elapsed time for households 36.7957 sec
+Elapsed time for kappa 15.8858 sec
+Elapsed time for experts 42.7115 sec
+Elapsed time for households 37.0507 sec
 Iteration 7
-Elapsed time for kappa 23.0179 sec
-Elapsed time for experts 9.3225 sec
-Elapsed time for households 12.8591 sec
+Elapsed time for kappa 17.0566 sec
+Elapsed time for experts 41.7225 sec
+Elapsed time for households 37.2360 sec
 Iteration 8
-Elapsed time for kappa 22.1189 sec
-Elapsed time for experts 10.5492 sec
-Elapsed time for households 8.1768 sec
+Elapsed time for kappa 16.7573 sec
+Elapsed time for experts 42.6914 sec
+Elapsed time for households 6.7283 sec
 Iteration 9
-Elapsed time for kappa 21.3548 sec
-Elapsed time for experts 79.1999 sec
-Elapsed time for households 72.4264 sec
-Elapsed time for training 1415.6662 sec
+Elapsed time for kappa 17.5260 sec
+Elapsed time for experts 42.3518 sec
+Elapsed time for households 6.8650 sec
+Elapsed time for training 785.9630 sec
