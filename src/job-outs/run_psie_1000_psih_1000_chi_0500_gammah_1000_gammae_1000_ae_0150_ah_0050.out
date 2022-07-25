@@ -1,0 +1,46 @@
+==========================================
+SLURM_JOB_ID = 9536015
+SLURM_SUBMIT_DIR = /home/qhaomin/NNHJB/src
+SLURM_JOB_NODELIST = mgpu01
+==========================================
+Iteration 0
+Elapsed time for kappa 108.9657 sec
+Elapsed time for experts 89.9421 sec
+Elapsed time for households 79.1724 sec
+Iteration 1
+Elapsed time for kappa 23.8792 sec
+Elapsed time for experts 84.7475 sec
+Elapsed time for households 76.9857 sec
+Iteration 2
+Elapsed time for kappa 24.9557 sec
+Elapsed time for experts 87.6657 sec
+Elapsed time for households 77.5628 sec
+Iteration 3
+Elapsed time for kappa 25.5927 sec
+Elapsed time for experts 83.5624 sec
+Elapsed time for households 77.6355 sec
+Iteration 4
+Elapsed time for kappa 25.9484 sec
+Elapsed time for experts 83.1474 sec
+Elapsed time for households 77.3940 sec
+Iteration 5
+Elapsed time for kappa 25.3202 sec
+Elapsed time for experts 82.9127 sec
+Elapsed time for households 78.3855 sec
+Iteration 6
+Elapsed time for kappa 25.9337 sec
+Elapsed time for experts 81.7095 sec
+Elapsed time for households 76.8125 sec
+Iteration 7
+Elapsed time for kappa 25.9862 sec
+Elapsed time for experts 83.0930 sec
+Elapsed time for households 81.3854 sec
+Iteration 8
+Elapsed time for kappa 25.0648 sec
+Elapsed time for experts 81.9405 sec
+Elapsed time for households 77.6721 sec
+Iteration 9
+Elapsed time for kappa 25.4004 sec
+Elapsed time for experts 83.5387 sec
+Elapsed time for households 61.0147 sec
+Elapsed time for training 1944.3036 sec
