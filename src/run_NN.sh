@@ -3,8 +3,8 @@
 mkdir -p ./job-outs
 mkdir -p ./bash
 
-declare -a model_list=("psie_1000_psih_1000_chi_0500_gammah_5000_gammae_1000_ae_0140_ah_0135" "psie_1000_psih_1000_chi_0200_gammah_5000_gammae_1000_ae_0140_ah_0135" \
-             "psie_1000_psih_1000_chi_0500_gammah_5000_gammae_0500_ae_0140_ah_0135" "psie_1000_psih_1000_chi_0200_gammah_5000_gammae_0500_ae_0140_ah_0135")
+declare -a model_list=("psie_1000_psih_1000_chi_0200_gammah_1000_gammae_1000_ae_0150_ah_0050" "psie_1000_psih_1000_chi_0200_gammah_1000_gammae_1000_ae_0150_ah_0100" \
+             "psie_1000_psih_1000_chi_0500_gammah_1000_gammae_1000_ae_0150_ah_0050" "psie_1000_psih_1000_chi_0500_gammah_1000_gammae_1000_ae_0150_ah_0100")
 
 
 for model in "${model_list[@]}"
