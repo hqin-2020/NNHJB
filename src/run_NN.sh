@@ -3,8 +3,10 @@
 mkdir -p ./job-outs
 mkdir -p ./bash
 
-declare -a model_list=("psie_1000_psih_1000_chi_0200_gammah_1000_gammae_1000_ae_0150_ah_0050" "psie_1000_psih_1000_chi_0200_gammah_1000_gammae_1000_ae_0150_ah_0100" \
-             "psie_1000_psih_1000_chi_0500_gammah_1000_gammae_1000_ae_0150_ah_0050" "psie_1000_psih_1000_chi_0500_gammah_1000_gammae_1000_ae_0150_ah_0100")
+declare -a model_list=("psie_0500_psih_0500_chi_0500_gammah_1000_gammae_1000_ae_0150_ah_0050" "psie_0500_psih_0500_chi_0500_gammah_1000_gammae_1000_ae_0150_ah_0100" \
+             "psie_0500_psih_1500_chi_0500_gammah_1000_gammae_1000_ae_0150_ah_0050" "psie_0500_psih_1500_chi_0500_gammah_1000_gammae_1000_ae_0150_ah_0100" \
+             "psie_1500_psih_0500_chi_0500_gammah_1000_gammae_1000_ae_0150_ah_0050" "psie_1500_psih_0500_chi_0500_gammah_1000_gammae_1000_ae_0150_ah_0100" \
+             "psie_1500_psih_1500_chi_0500_gammah_1000_gammae_1000_ae_0150_ah_0050" "psie_1500_psih_1500_chi_0500_gammah_1000_gammae_1000_ae_0150_ah_0100")
 
 
 for model in "${model_list[@]}"
