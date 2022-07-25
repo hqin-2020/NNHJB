@@ -20,7 +20,7 @@ do
 #SBATCH --time=0-3:00:00
 #SBATCH --partition=gpu
 #SBATCH --gres=gpu:1
-#SBATCH --cpus-per-task=16
+#SBATCH --cpus-per-task=4
 #SBATCH --mem=64G
 
 module load python/booth/3.8/3.8.5
