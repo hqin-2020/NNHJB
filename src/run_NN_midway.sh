@@ -1,6 +1,6 @@
 #! /bin/bash
 
-nv=30
+nV=30
 nVtilde=0
 V_bar=1.0
 Vtilde_bar=0.0
@@ -75,9 +75,9 @@ module load python/anaconda-2021.05
 
 python3 NN_structure.py    --logXiE_NN_layers ${logXiE_NN_layers} --logXiH_NN_layers ${logXiH_NN_layers} --kappa_NN_layers ${kappa_NN_layers}
 python3 standard_BFGS.py   --chiUnderline ${chiUnderline} --a_e ${a_e} --a_h ${a_h} --gamma_e ${gamma_e} --gamma_h ${gamma_h} --psi_e ${psi_e} --psi_h ${psi_h} \
-                                --nV ${nV} --nVtilde ${nVtilde} --V_bar ${V_bar} --Vtilde_bar ${Vtilde_bar} --sigma_V_norm ${sigma_V_norm} --sigma_Vtilde_norm ${sigma_Vtilde_norm} \
-                                --logXiE_NN_layers ${logXiE_NN_layers} --logXiH_NN_layers ${logXiH_NN_layers} --kappa_NN_layers ${kappa_NN_layers} \
-                                --weight ${weight} --points_size ${points_size} --boundary ${boundary}
+                            --nV ${nV} --nVtilde ${nVtilde} --V_bar ${V_bar} --Vtilde_bar ${Vtilde_bar} --sigma_V_norm ${sigma_V_norm} --sigma_Vtilde_norm ${sigma_Vtilde_norm} \
+                            --logXiE_NN_layers ${logXiE_NN_layers} --logXiH_NN_layers ${logXiH_NN_layers} --kappa_NN_layers ${kappa_NN_layers} \
+                            --weight ${weight} --points_size ${points_size} --boundary ${boundary}
 
 EOF
                                                     sbatch ./bash/$domain_folder/$model_folder/$layer_folder/$model_folder.sh

@@ -1,6 +1,6 @@
 #! /bin/bash
 
-nv=30
+nV=30
 nVtilde=0
 V_bar=1.0
 Vtilde_bar=0.0
