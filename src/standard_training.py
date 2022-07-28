@@ -311,7 +311,7 @@ def function_factory(model, loss, valueFunctionLogH, valueFunctionLogE, constrai
             ## Calculate the loss 
             if model == constraintsFunctionKappa:
               loss_value = loss_type(loss(valueFunctionLogH, valueFunctionLogE, constraintsFunctionKappa, W, Z, V, Vtilde, params)+\
-                                    weight*loss(valueFunctionLogH, valueFunctionLogE, constraintsFunctionKappa, 10**(-boundary)*tf.ones(W.shape, dtype=tf.float64), Z, V, params), targets)
+                                    weight*loss(valueFunctionLogH, valueFunctionLogE, constraintsFunctionKappa, 10**(-boundary)*tf.ones(W.shape, dtype=tf.float64), Z, V, Vtilde, params), targets)
             else:
               loss_value = loss_type(loss(valueFunctionLogH, valueFunctionLogE, constraintsFunctionKappa, W, Z, V, Vtilde, params), targets)
         ## Calculate gradients and convert to 1D tf.Tensor
