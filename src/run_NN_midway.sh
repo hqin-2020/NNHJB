@@ -66,7 +66,7 @@ do
 #SBATCH --cpus-per-task=16
 #SBATCH --mem=32G
 
-module load python/anaconda-2021.05
+module load python/anaconda-2020.02
 module load cuda/10.1
 module load tensorflow/2.1
 
