@@ -67,7 +67,7 @@ do
 #SBATCH --cpus-per-task=7
 #SBATCH --mem=32G
 
-module load python/booth/3.8/3.8.5
+module load python/booth/3.10/3.10.4
 module load cuda/11.4
 
 source ~/venv/tensorflow-gpu/bin/activate
