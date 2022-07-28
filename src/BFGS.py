@@ -68,9 +68,9 @@ srcdir = workdir + '/src/'
 datadir = workdir + '/data/' + domain_folder + '/' + model_folder + '/'
 outputdir = workdir + '/output/' + domain_folder + '/' + model_folder + '/' + layer_folder + '/'
 docdir = workdir + '/doc/' + domain_folder + '/' + model_folder + '/'+ layer_folder + '/'
-os.makedirs(datadir)
-os.makedirs(docdir)
-os.makedirs(outputdir)
+os.makedirs(datadir,exist_ok=True)
+os.makedirs(docdir,exist_ok=True)
+os.makedirs(outputdir,exist_ok=True)
 
 setModelParameters(parameter_list, domain_list)
 with open(datadir + 'parameters_NN.json') as json_file:
