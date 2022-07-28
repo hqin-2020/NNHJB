@@ -66,8 +66,8 @@ do
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=16G
 
-module load python/anaconda-2021.05
-module load cuda/11.0
+module load python/anaconda-2020.02
+module load cuda/10.1
 module load tensorflow/2.1
 
 srun python3 NN_structure.py    --logXiE_NN_layers ${logXiE_NN_layers} --logXiH_NN_layers ${logXiH_NN_layers} --kappa_NN_layers ${kappa_NN_layers}
