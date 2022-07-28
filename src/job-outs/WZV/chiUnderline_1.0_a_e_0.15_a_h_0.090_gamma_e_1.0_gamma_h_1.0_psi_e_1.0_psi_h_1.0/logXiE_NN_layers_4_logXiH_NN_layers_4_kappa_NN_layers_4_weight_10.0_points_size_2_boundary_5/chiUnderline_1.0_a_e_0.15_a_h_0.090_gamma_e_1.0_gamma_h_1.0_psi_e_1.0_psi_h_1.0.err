@@ -1,0 +1,20 @@
+/var/lib/slurmd/job9551294/slurm_script: line 16: /home/qhaomin/venv/tensorflow-gpu/bin/activate: No such file or directory
+Traceback (most recent call last):
+  File "standard_BFGS.py", line 7, in <module>
+    from standard_para import *
+  File "/home/qhaomin/NNHJB/src/standard_para.py", line 2, in <module>
+    import mfr.modelSoln as m
+  File "/home/qhaomin/.local/lib/python3.8/site-packages/mfr/modelSoln/__init__.py", line 2, in <module>
+    from .modelClass import *
+  File "/home/qhaomin/.local/lib/python3.8/site-packages/mfr/modelSoln/modelClass.py", line 49, in <module>
+    import mfr.sdm as sdm
+  File "/home/qhaomin/.local/lib/python3.8/site-packages/mfr/sdm/__init__.py", line 1, in <module>
+    from .stationaryDensityModules import *
+  File "/home/qhaomin/.local/lib/python3.8/site-packages/mfr/sdm/stationaryDensityModules.py", line 27, in <module>
+    from pyMKL import pardisoSolver
+  File "/home/qhaomin/.local/lib/python3.8/site-packages/pyMKL/__init__.py", line 13, in <module>
+    MKLlib = _loadMKL()
+  File "/home/qhaomin/.local/lib/python3.8/site-packages/pyMKL/loadMKL.py", line 30, in _loadMKL
+    return MKLlib
+UnboundLocalError: local variable 'MKLlib' referenced before assignment
+srun: error: mgpu01: task 0: Exited with exit code 1
