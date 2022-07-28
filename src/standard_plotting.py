@@ -46,9 +46,8 @@ def generateSurfacePlots(mfr_Results, nn_Results, fixed_points, X, function_name
             z=plot_results[i][col][fixed_idx[row]].reshape([n_points, 30], order='F'),
             colorscale=plot_color_style[i], showscale=False, name= plot_results_name[i], showlegend=showlegend), row = row+1, col = col+1)
 
-    
     fig.update_layout(title= 'MRF vs NN - '+ plot_content +' surface plots', title_x = 0.5, title_y = 0.98, height=height, width=width)
-    fig.write_html(path + "/" + plot_content + ".html")
+    fig.write_json(path + "/" + plot_content + ".json")
     fig.show()
 
 def generateScatterPlots(mfr_Results, nn_Results, function_name, height=20, width=7):

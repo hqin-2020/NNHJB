@@ -1,36 +1,95 @@
 #! /bin/bash
 
-mkdir -p ./job-outs
-mkdir -p ./bash
+nv=30
+nVtilde=0
+V_bar=1.0
+Vtilde_bar=0.0
+sigma_V_norm=0.132
+sigma_Vtilde_norm=0.0
 
-declare -a model_list=("psie_1000_psih_1000_chi_1000_gammah_1000_gammae_0500_ae_0150_ah_0050" "psie_1000_psih_1000_chi_1000_gammah_1000_gammae_0500_ae_0150_ah_0100" \
-             "psie_1000_psih_1000_chi_0500_gammah_1000_gammae_0500_ae_0150_ah_0050" "psie_1000_psih_1000_chi_0500_gammah_1000_gammae_0500_ae_0150_ah_0100")
+if (( $(echo "$sigma_Vtilde_norm == 0.0" |bc -l) )); then
+    domain_folder='WZV'
+    mkdir -p ./job-outs/$domain_folder
+    mkdir -p ./bash/$domain_folder
+elif (( $(echo "$sigma_V_norm == 0.0" |bc -l) )); then
+    domain_folder='WZVtilde'
+    mkdir -p ./job-outs/$domain_folder
+    mkdir -p ./bash/$domain_folder
+fi
 
 
-for model in "${model_list[@]}"
+for a_e in 0.15
 do
-    touch ./bash/run_$model.sh
-    tee ./bash/run_$model.sh << EOF
+    for a_h in 0.13 0.12 0.11 0.090 0.080 0.070 0.060
+    do
+        for psi_e in 1.0
+        do
+            for psi_h in 1.0
+            do
+                for gamma_e in 1.0
+                do
+                    for gamma_h in 1.0
+                    do
+                        for chiUnderline in 1.0
+                        do  
+                            model_folder=chiUnderline_${chiUnderline}_a_e_${a_e}_a_h_${a_h}_gamma_e_${gamma_e}_gamma_h_${gamma_h}_psi_e_${psi_e}_psi_h_${psi_h}
+                            mkdir -p ./job-outs/$domain_folder/$model_folder
+                            mkdir -p ./bash/$domain_folder/$model_folder
+
+                            for weight in 10.0
+                            do
+                                for points_size in 2
+                                do
+                                    for boundary in 5
+                                    do
+                                        for logXiE_NN_layers in 4
+                                        do 
+                                            for logXiH_NN_layers in 4
+                                            do  
+                                                for kappa_NN_layers in 4
+                                                do
+
+                                                    layer_folder=logXiE_NN_layers_${logXiE_NN_layers}_logXiH_NN_layers_${logXiH_NN_layers}_kappa_NN_layers_${kappa_NN_layers}_weight_${weight}_points_size_${points_size}_boundary_${boundary}
+                                                    mkdir -p ./job-outs/$domain_folder/$model_folder/$layer_folder
+                                                    mkdir -p ./bash/$domain_folder/$model_folder/$layer_folder
+
+                                                    touch ./bash/$domain_folder/$model_folder/$layer_folder/$model_folder.sh
+                                                    tee ./bash/$domain_folder/$model_folder/$layer_folder/$model_folder.sh << EOF
 #!/bin/bash
 
 #SBATCH --account=pi-lhansen
-#SBATCH --job-name=run_$model
-#SBATCH --output=./job-outs/run_$model.out
-#SBATCH --error=./job-outs/run_$model.err
+#SBATCH --job-name=$model_folder
+#SBATCH --output=./job-outs/$domain_folder/$model_folder/$layer_folder/$model_folder.out
+#SBATCH --error=./job-outs/$domain_folder/$model_folder/$layer_folder/$model_folder.err
 #SBATCH --time=0-3:00:00
 #SBATCH --partition=gpu
 #SBATCH --gres=gpu:1
-#SBATCH --cpus-per-task=4
-#SBATCH --mem=64G
+#SBATCH --cpus-per-task=7
+#SBATCH --mem=32G
 
 module load python/booth/3.8/3.8.5
 module load cuda/11.4
 
 source ~/venv/tensorflow-gpu/bin/activate
 
-srun python3 standard_BFGS.py --model $model
-srun python3 standard_Plots.py --model $model
+srun python3 NN_structure.py    --logXiE_NN_layers ${logXiE_NN_layers} --logXiH_NN_layers ${logXiH_NN_layers} --kappa_NN_layers ${kappa_NN_layers}
+srun python3 standard_BFGS.py   --chiUnderline ${chiUnderline} --a_e ${a_e} --a_h ${a_h} --gamma_e ${gamma_e} --gamma_h ${gamma_h} --psi_e ${psi_e} --psi_h ${psi_h} \
+                                --nV $nV --nVtilde $nVtilde --V_bar $V_bar --Vtilde_bar $Vtilde_bar --sigma_V_norm $sigma_V_norm --sigma_Vtilde_norm $sigma_Vtilde_norm \
+                                --logXiE_NN_layers $logXiE_NN_layers --logXiH_NN_layers $logXiH_NN_layers --kappa_NN_layers $kappa_NN_layers \
+                                --weight $weight --points_size $points_size --boundary $boundary
 
 EOF
-    sbatch ./bash/run_$model.sh
+                                                    sbatch ./bash/$domain_folder/$model_folder/$layer_folder/$model_folder.sh
+                                                done        
+                                            done
+                                        done
+                                    done
+                                done
+                            done
+                        done
+                    done
+                done
+            done
+        done
+    done
 done

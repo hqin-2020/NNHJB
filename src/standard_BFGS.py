@@ -8,60 +8,86 @@ from standard_training import *
 import argparse
 
 parser = argparse.ArgumentParser(description="parameter settings")
-parser.add_argument("--model",type=str,default='ah_0135')
+parser.add_argument("--a_e",type=float,default=0.14)
+parser.add_argument("--a_h",type=float,default=0.135)
+parser.add_argument("--psi_e",type=float,default=1.0)
+parser.add_argument("--psi_h",type=float,default=1.0)
+parser.add_argument("--gamma_e",type=float,default=1.0)
+parser.add_argument("--gamma_h",type=float,default=1.0)
+parser.add_argument("--chiUnderline",type=float,default=1.0)
 args = parser.parse_args()
 
+a_e             = args.a_e
+a_h             = args.a_h
+psi_e           = args.psi_e
+psi_h           = args.psi_h
+gamma_e         = args.gamma_e
+gamma_h         = args.gamma_h
+chiUnderline    = args.chiUnderline
+parameter_list = [chiUnderline, a_e, a_h, gamma_e, gamma_h, psi_e, psi_h]
+folder_name = ''
+psi_e = str("{:0.3f}".format(psi_e)).replace('.', '', 1) 
+psi_h = str("{:0.3f}".format(psi_h)).replace('.', '', 1) 
+gamma_e = str("{:0.3f}".format(gamma_e)).replace('.', '', 1) 
+gamma_h = str("{:0.3f}".format(gamma_h)).replace('.', '', 1) 
+a_e = str("{:0.3f}".format(a_e)).replace('.', '', 1) 
+a_h = str("{:0.3f}".format(a_h)).replace('.', '', 1) 
+chiUnderline = str("{:0.3f}".format(chiUnderline)).replace('.', '', 1) 
+folder_name = folder_name + 'chiUnderline_' + chiUnderline + '_a_e_' + a_e + '_a_h_' + a_h  + '_gamma_e_' + gamma_e + '_gamma_h_' + gamma_h + '_psi_e_' + psi_e + '_psi_h_' + psi_h
+
 workdir = os.path.dirname(os.getcwd())
-model = args.model
 srcdir = workdir + '/src/'
-datadir = workdir + '/data/' + model + '/'
-outputdir = workdir + '/output/' + model + '/'
-docdir = workdir + '/doc/' + model + '/'
+datadir = workdir + '/data/' + folder_name + '/'
+outputdir = workdir + '/output/' + folder_name + '/'
+docdir = workdir + '/doc/' + folder_name + '/'
 
 try:
   os.mkdir(docdir)
 except:
   pass
+try:
+  os.mkdir(outputdir)
+except:
+  pass
 
-json_location =  datadir + 'parameters.json'
-
+setModelParameters(parameter_list)
+json_location =  datadir + 'parameters_NN.json'
 with open(json_location) as json_file:
-  paramsFromFile= json.load(json_file)
+    paramsFromFile= json.load(json_file)
 params = setModelParametersFromFile(paramsFromFile)
 
-batchSize = 2048*5
+points_size = 5
+batchSize = 2048*points_size
+dimension = 3
+units = 16
+activation = 'tanh'
+kernel_initializer = 'glorot_normal'
 
 ## Use float64 by default
 tf.keras.backend.set_floatx("float64")
 
 logXiE_NN = tf.keras.Sequential(
-    [tf.keras.Input(shape=[3,]),
-      tf.keras.layers.Dense(16, activation='tanh', kernel_initializer='glorot_normal'),
-      tf.keras.layers.Dense(16, activation='tanh', kernel_initializer='glorot_normal'),
-      tf.keras.layers.Dense(16, activation='tanh', kernel_initializer='glorot_normal'),
-      tf.keras.layers.Dense(16, activation='tanh', kernel_initializer='glorot_normal'),
-      tf.keras.layers.Dense(16, activation='tanh', kernel_initializer='glorot_normal'),
-      tf.keras.layers.Dense(16, activation='tanh', kernel_initializer='glorot_normal'),
+    [tf.keras.Input(shape=[dimension,]),
+      tf.keras.layers.Dense(units, activation=activation, kernel_initializer=kernel_initializer),
+      tf.keras.layers.Dense(units, activation=activation, kernel_initializer=kernel_initializer),
+      tf.keras.layers.Dense(units, activation=activation, kernel_initializer=kernel_initializer),
+      tf.keras.layers.Dense(units, activation=activation, kernel_initializer=kernel_initializer),
       tf.keras.layers.Dense(1,  activation= None,  kernel_initializer='glorot_normal')])
 
 logXiH_NN = tf.keras.Sequential(
-    [tf.keras.Input(shape=[3,]),
-      tf.keras.layers.Dense(16, activation='tanh', kernel_initializer='glorot_normal'),
-      tf.keras.layers.Dense(16, activation='tanh', kernel_initializer='glorot_normal'),
-      tf.keras.layers.Dense(16, activation='tanh', kernel_initializer='glorot_normal'),
-      tf.keras.layers.Dense(16, activation='tanh', kernel_initializer='glorot_normal'),
-      tf.keras.layers.Dense(16, activation='tanh', kernel_initializer='glorot_normal'),
-      tf.keras.layers.Dense(16, activation='tanh', kernel_initializer='glorot_normal'),
+    [tf.keras.Input(shape=[dimension,]),
+      tf.keras.layers.Dense(units, activation=activation, kernel_initializer=kernel_initializer),
+      tf.keras.layers.Dense(units, activation=activation, kernel_initializer=kernel_initializer),
+      tf.keras.layers.Dense(units, activation=activation, kernel_initializer=kernel_initializer),
+      tf.keras.layers.Dense(units, activation=activation, kernel_initializer=kernel_initializer),
       tf.keras.layers.Dense(1,  activation= None , kernel_initializer='glorot_normal')])
 
 kappa_NN = tf.keras.Sequential(
-    [tf.keras.Input(shape=[3,]),
-      tf.keras.layers.Dense(16, activation='tanh',    kernel_initializer='glorot_normal'),
-      tf.keras.layers.Dense(16, activation='tanh',    kernel_initializer='glorot_normal'),
-      tf.keras.layers.Dense(16, activation='tanh',    kernel_initializer='glorot_normal'),
-      tf.keras.layers.Dense(16, activation='tanh',    kernel_initializer='glorot_normal'),
-      tf.keras.layers.Dense(16, activation='tanh', kernel_initializer='glorot_normal'),
-      tf.keras.layers.Dense(16, activation='tanh', kernel_initializer='glorot_normal'),
+    [tf.keras.Input(shape=[dimension,]),
+      tf.keras.layers.Dense(units, activation=activation, kernel_initializer=kernel_initializer),
+      tf.keras.layers.Dense(units, activation=activation, kernel_initializer=kernel_initializer),
+      tf.keras.layers.Dense(units, activation=activation, kernel_initializer=kernel_initializer),
+      tf.keras.layers.Dense(units, activation=activation, kernel_initializer=kernel_initializer),
       tf.keras.layers.Dense(1,  activation='sigmoid', kernel_initializer='glorot_normal')])
 
 start = time.time()
