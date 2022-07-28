@@ -66,9 +66,13 @@ do
 #SBATCH --cpus-per-task=16
 #SBATCH --mem=32G
 
-module load python/anaconda-2020.02
-module load cuda/10.1
 module load tensorflow/2.1
+module unload cuda
+module unload python
+module load cuda/11.2
+module load python/anaconda-2021.05
+
+
 
 srun python3 NN_structure.py    --logXiE_NN_layers ${logXiE_NN_layers} --logXiH_NN_layers ${logXiH_NN_layers} --kappa_NN_layers ${kappa_NN_layers}
 srun python3 standard_BFGS.py   --chiUnderline ${chiUnderline} --a_e ${a_e} --a_h ${a_h} --gamma_e ${gamma_e} --gamma_h ${gamma_h} --psi_e ${psi_e} --psi_h ${psi_h} \
