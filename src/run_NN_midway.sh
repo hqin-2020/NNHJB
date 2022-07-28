@@ -63,8 +63,8 @@ do
 #SBATCH --time=0-3:00:00
 #SBATCH --partition=gpu2
 #SBATCH --gres=gpu:1
-#SBATCH --cpus-per-task=2
-#SBATCH --mem=5G
+#SBATCH --cpus-per-task=16
+#SBATCH --mem=32G
 
 module load python/anaconda-2020.02
 module load cuda/10.1
